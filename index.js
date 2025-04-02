@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.get('/api/pokemon/:name', async (req, res) => {
   try {
@@ -17,7 +17,7 @@ app.get('/api/pokemon/:name', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor backend corriendo en puerto ${PORT}`);
 });
 
 app.get('/api/evolution/:name', async (req, res) => {
